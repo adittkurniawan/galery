@@ -75,3 +75,5 @@ if (isset($_POST['hapus'])) {
     location.href='../admin/foto.php';
     </script>";
     }
+
+

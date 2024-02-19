@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_array($ceksuka)){
 $likeid = $row['likeid'];
 $query = mysqli_query($koneksi, "DELETE FROM likefoto WHERE likeid='$likeid'");
 echo "<script>
-location.href='../admin/home.php';
+location.href='../admin/index.php';
 </script>";
 }
 
@@ -25,6 +25,6 @@ $tanggallike')");
 
 }
 echo "<script>
-location.href='../admin/home.php';
+location.href='../admin/index.php';
 </script>";
 ?>

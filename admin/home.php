@@ -52,11 +52,13 @@ location.href= ' ../index.php';
         <?php } ?>
         
         <div class="row">
-            <?php
-            $query = mysqli_query($koneksi, "SELECT * FROM foto WHERE userid='$userid'");
-            while ($data = mysqli_fetch_array($query)) {
-                ?>
-                <div class="col-md-3">
+        <?php
+        if (isset($_GET['albumid'])) {$albumid= $_GET['albumid'];
+        $query = mysqli_query($koneksi, "SELECT * FROM foto WHERE userid='$userid' AND albumid=
+        '$albumid'");
+        while ($data = mysqli_fetch_array($query)){ ?>
+        
+        <div class="col-md-3 mt-2">
                     <div class="card">
                         <img style="height: 12rem;" src="../assets/img/<?php echo $data['lokasifile'] ?>" class="card-img-top" title="<?php echo $data['judulfoto'] ?>">
                         <div class="card-footer text-center">
@@ -73,14 +75,57 @@ location.href= ' ../index.php';
                             $like = mysqli_query($koneksi, "SELECT * FROM likefoto WHERE fotoid='$fotoid'");
                             echo mysqli_num_rows($like). 'Suka';
                             ?>
-                            <a href=""><i class="fa-regular fa-comment "></i></a> 3 Komentar
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#komentar<?php echo $data['fotoid'] ?>
+                            "><i class="fa-regular fa-comment">
+                            </i> </a>
+                            
+                            <?php
+                            $jmlkomen = mysqli_query($koneksi, "SELECT* FROM komentarfoto
+                            WHERE fotoid='$fotoid'");
+                            echo mysqli_num_rows($jmlkomen). 'Komentar';
+                            ?>
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+        <?php } }else{
+
+            $query = mysqli_query($koneksi, "SELECT * FROM foto WHERE userid='$userid'");
+            while ($data = mysqli_fetch_array($query)) {
+                ?>
+                <div class="col-md-3 mt-2">
+                    <div class="card">
+                        <img style="height: 12rem;" src="../assets/img/<?php echo $data['lokasifile'] ?>" class="card-img-top" title="<?php echo $data['judulfoto'] ?>">
+                        <div class="card-footer text-center">
+
+
+                        <?php
+                        $fotoid = $data['fotoid'];
+                        $ceksuka = mysqli_query($koneksi, "SELECT * FROM likefoto WHERE fotoid='$fotoid' AND userid='$userid'");if (mysqli_num_rows($ceksuka) == 1) { 
+                            ?>
+                        <a href="../config/proses_like.php?fotoid=<?php echo $data['fotoid'] ?>" type="submit" name="batalsuka"><i class="fa fa-heart"></i></a>
+                        <?php }else{ ?>
+                            <a href="../config/proses_like.php?fotoid=<?php echo $data['fotoid'] ?>" type="submit" name="suka"><i class="fa-solid  fa-heart"></i></a>
+                            <?php }
+                            $like = mysqli_query($koneksi, "SELECT * FROM likefoto WHERE fotoid='$fotoid'");
+                            echo mysqli_num_rows($like). 'Suka';
+                            ?>
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#komentar<?php echo $data['fotoid'] ?>
+                            "><i class="fa-regular fa-comment">
+                            </i> </a>
+                            
+                            <?php
+                            $jmlkomen = mysqli_query($koneksi, "SELECT* FROM komentarfoto
+                            WHERE fotoid='$fotoid'");
+                            echo mysqli_num_rows($jmlkomen). 'Komentar';
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                
+                <?php } } ?>
             </div>
         </div>
-
+                                            
     <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
 </body>
 
