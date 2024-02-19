@@ -43,14 +43,14 @@ location.href= ' ../index.php';
     </nav>
 
     <div class="container mt-3">
-        Album :
+       Album :
         <?php
         $album =mysqli_query($koneksi, "SELECT * FROM album WHERE userid='$userid'");
         while ($row = mysqli_fetch_array($album)) { ?>
         <a href="home.php?albumid=<?php echo $row ['albumid'] ?>" class="btn btn-outline-primary">
         <?php echo $row [ 'namaalbum'] ?></a>
         <?php } ?>
-        
+         
         <div class="row">
         <?php
         if (isset($_GET['albumid'])) {$albumid= $_GET['albumid'];
@@ -118,6 +118,7 @@ location.href= ' ../index.php';
                             WHERE fotoid='$fotoid'");
                             echo mysqli_num_rows($jmlkomen). 'Komentar';
                             ?>
+                            
                         </div>
                     </div>
                 </div>

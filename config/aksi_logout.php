@@ -5,3 +5,4 @@ echo "<script>
 alert('Logout berhasil'); location.href='../index.php';
 </script>";
 ?>
+

@@ -101,8 +101,9 @@ location.href='../index.php';|
                                                 </div>
                                                 <hr>
                                                 <p align="left">
+                                                    <strong><?php echo $data['tanggalunggah'] ?></strong>
                                                     <?php echo $data['deskripsifoto'] ?>
-                                                </p>
+                                                    </p>
                                                 <hr>
                                                 <hr>
                                                 <?php
@@ -113,6 +114,7 @@ location.href='../index.php';|
                                                 while ($row = mysqli_fetch_array($komentar)) {
                                                     ?>
                                                     <p align="left">
+                                                        <strong><?php echo $row['tanggalkomentar'] ?></strong><br>
                                                         <strong><?php echo $row['namalengkap'] ?></strong>
                                                         <?php echo $row['isikomentar'] ?>
                                                     </p>
