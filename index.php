@@ -7,6 +7,8 @@ width=device-width, initial-scale=1">
 <title>Website Galeri Foto</title>
 <link rel="stylesheet" type="text/css" href="
 assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -28,20 +30,49 @@ assets/css/bootstrap.min.css">
         </div>
     </nav>
 
-    <div class="container mt-3">
-        <div class="row">
-         <div class="col-md-3">
-             <div class="card">
-                <img src="" class="card-img-top" title="" style="height:
-                    12rem;">
-                        <div class="card-footer text-center">
-                <a href="">10 Suka</a>
-                <a href="">3 Komentar</a>
+    <div class="container mt-2">
+<div class="row">
+    <?php
+    include "koneksi.php";
+    session_start();
+    $query= mysqli_query($koneksi, "SELECT * FROM foto"); 
+    while ($data = mysqli_fetch_array($query)){
+        ?>
+        <div class="col-md-3 mt-2">
+            <div class="card">
+                <img style="height: 12rem;" src="assets/img/<?php echo $data['lokasifile'] ?>" class=
+                "card-img-top" title="<?php echo $data['judulfoto'] ?>">
+                <div class="card-footer text-center">
+
+
+                <?php
+                $fotoid = $data['fotoid'];
+                $ceksuka= mysqli_query($koneksi, "SELECT* FROM likefoto");
+                if (mysqli_num_rows ($ceksuka) == 1) { ?>
+                <a href="../config/proses_like.php?fotoid=<?php echo $data['fotoid' ] ?>" type="submit"name="batalsuka"><i class="fa fa-heart"></i></a>
+                <?php }else{?>
+                    <a href="../config/proses_like.php?fotoid=<?php echo $data['fotoid'] ?>" type="submit"name="suka"><i class="fa-regular fa-heart" ></i></a>
+                    <?php }
+                    $like = mysqli_query($koneksi, "SELECT* FROM likefoto WHERE fotoid='$fotoid'");
+                    echo mysqli_num_rows ($like). 'Suka';
+                    ?>
+                    <a type="button" data-bs-toggle="modal" data-bs-target="#komentar<?php echo $data['fotoid'] ?>
+                            "><i class="fa-regular fa-comment">
+                            </i> </a>
+                            
+                            <?php
+                            $jmlkomen = mysqli_query($koneksi, "SELECT* FROM komentarfoto
+                            WHERE fotoid='$fotoid'");
+                            echo mysqli_num_rows($jmlkomen). 'Komentar';
+                            ?>
+                    </a>
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
 </div>
+    
 </body>
 <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
 </body>

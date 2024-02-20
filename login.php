@@ -41,9 +41,7 @@ assets/css/bootstrap.min.css">
                             <input type="text" name="username" class="form-control" required>
                             <label class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" required> <div class="d-grid mt-2">
-                                <button class="btn btn-primary" type="submit" name="kirim">MASUK
-
-                                </button>
+                                <button class="btn btn-primary" type="submit" name="kirim">MASUK</button>
                         </form>
                         <hr>
                         <p>Belum Punya Akun? <a href="register.php">Login Disini</a></p>

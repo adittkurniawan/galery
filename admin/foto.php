@@ -27,9 +27,9 @@ if ($_SESSION['status'] != 'login') {
             </button>
             <div class="collapse navbar-collapse mt-2" id="navbarNavAltMarkup">
                 <div class="navbar-nav me-auto">
-                <a href="home.php" class="btn btn-primary me-2">Home</a>
-                <a href="album.php" class="btn btn-primary me-2">Album</a>
-                <a href="foto.php" class="btn btn-primary">Foto</a>
+                <a href="home.php" class="btn btn-outline-danger m-1">Home</a>
+                <a href="album.php" class="btn btn-outline-danger m-1">Album</a>
+                <a href="foto.php" class="btn btn-outline-danger m-1">Foto</a>
                 </div>
                 <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1">
                     Logout
