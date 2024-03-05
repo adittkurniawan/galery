@@ -23,16 +23,14 @@ include '../config/koneksi.php';
             </button>
             <div class="collapse navbar-collapse mt-2" id="navbarNavAltMarkup">
                 <div class="navbar-nav me-auto">
-                <a href="../admin/index.php" class="btn btn-outline-danger m-1">Beranda</a>
-                <a href="../admin/home.php" class="btn btn-outline-danger m-1">Home</a>
-                <a href="../admin/album.php" class="btn btn-outline-danger m-1">Album</a>
-                <a href="../admin/foto.php" class="btn btn-outline-danger m-1">Foto</a>
-                <a href="../admin/manage_admin.php" class="btn btn-outline-danger m-1">Manage Admin</a>
+                <a href="../user/index.php" class="btn btn-outline-danger m-1">Beranda</a>
+                <a href="../user/home.php" class="btn btn-outline-danger m-1">Home</a>
+                <a href="../user/album.php" class="btn btn-outline-danger m-1">Album</a>
+                <a href="../user/foto.php" class="btn btn-outline-danger m-1">Foto</a>
                 </div>
-                <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1">
+                <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1" style="position:relative; left:10px; width: 50px; height: 30px;">
                     <i class="fas fa-sign-out-alt"></i> <!-- Menggunakan ikon FontAwesome untuk logout -->
                 </a>
-
             </div>
         </div>
     </nav>
@@ -42,7 +40,7 @@ include '../config/koneksi.php';
                 <div class="card mt-2">
                     <div class="card-header">Tambah Foto</div>
                     <div class="card-body">
-                        <form action="../config/aksi_foto.php" method="POST" enctype="multipart/form-data">
+                        <form action="../config_user/aksi_foto.php" method="POST" enctype="multipart/form-data">
                             <label class="form-label">Judul Foto</label>
                             <input type="text" name="judulfoto" class="form-control" required>
                             <label class="form-label">Deskripsi</label>
@@ -108,7 +106,7 @@ include '../config/koneksi.php';
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="../config/aksi_foto.php" method="POST"
+                                                        <form action="../config_user/aksi_foto.php" method="POST"
                                                             enctype="multipart/form-data">
                                                             <input type="hidden" name="fotoid"
                                                                 value="<?php echo $data['fotoid'] ?>">
@@ -166,7 +164,7 @@ include '../config/koneksi.php';
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="../config/aksi_foto.php" method="POST">
+                                                        <form action="../config_user/aksi_foto.php" method="POST">
                                                             <input type="hidden" name="fotoid"
                                                                 value="<?php echo $data['fotoid'] ?>">
                                                             Apakah anda yakin akan menghapus data

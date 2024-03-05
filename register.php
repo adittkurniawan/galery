@@ -48,11 +48,19 @@ assets/css/bootstrap.min.css">
                             <label class="form-label">Alamat</label>
                             <input type="text" name="alamat" class="form-control" required>
                             <div class="d-grid mt-2">
+                            <div class="mb-3">
+                            <label for="level" class="form-label">Level</label>
+                            <select class="form-select" id="level" name="level" required>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                            <option value="user">Guest</option>
+                            </select>
                                 <button class="btn btn-primary" type="submit" name=" kirim">DAFTAR</button>
                             </div>
                         </form>
                         <hr>
                         <p>Sudah punya akun? <a href="login.php">Login disini!</a></p>
+                    </div>
                     </div>
                 </div>
             </div>

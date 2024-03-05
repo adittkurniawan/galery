@@ -29,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 
-
 <?php
 session_start();
 include 'koneksi.php';
@@ -41,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql =  "UPDATE komentarfoto SET isikomentar='$isikomentar_baru' WHERE komentarid='$komentarid'";
 
     if (mysqli_query($koneksi, $sql)) {
-        header("location: ../admin/index.php");
+        header("location: ../user/index.php");
     } else {
         echo "eror";
     }
@@ -59,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $sql =  "DELETE FROM komentarfoto WHERE komentarid='$komentarid'";
 
     if (mysqli_query($koneksi, $sql)) {
-        header("location: ../admin/index.php");
+        header("location: ../user/index.php");
     } else {
         echo "eror";
     }
@@ -72,23 +71,23 @@ include '../koneksi.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['hapus_komentar'])) {
     // Ambil komentar_id dari data yang dikirimkan melalui form
-    $komentar_id = $_POST['komentarid'];
+    $komentar_id = $_POST['komentar_id'];
 
     // Query untuk menghapus komentar berdasarkan komentar_id
     $query = "DELETE FROM komentarfoto WHERE komentar_id = '$komentar_id'";
 
     if (mysqli_query($koneksi, $query)) {
         // Jika penghapusan berhasil, alihkan kembali ke halaman foto dengan pesan sukses
-        header("Location: ../admin/foto.php?hapus_success=true");
+        header("Location: ../user/foto.php?hapus_success=true");
         exit();
     } else {
         // Jika penghapusan gagal, alihkan kembali ke halaman foto dengan pesan error
-        header("Location: ../admin/foto.php?hapus_error=true");
+        header("Location: ../user/foto.php?hapus_error=true");
         exit();
     }
 } else {
     // Jika tidak ada metode POST yang terdeteksi atau data yang diperlukan tidak tersedia, alihkan kembali ke halaman foto
-    header("Location: ../admin/foto.php");
+    header("Location: ../user/foto.php");
     exit();
 }
 ?>

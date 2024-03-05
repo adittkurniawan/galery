@@ -1,4 +1,4 @@
-<?php
+    <?php
     include '../koneksi.php';
 
 
@@ -30,31 +30,30 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <h4 style="position:relative; right:20px">Website Galeri Foto</h4>
+                <h4>Website Galeri Foto</h4>
                 <button class="navbar-toggler" type="button" data-bs-toggle="co data-bs-target=" #navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="
+            navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse mt-2" id="navbarNavAltMark
         <div class=" navbar-nav me-auto">
-                <a href="../admin/index.php" class="btn btn-outline-danger m-1">Beranda</a>
-                <a href="../admin/home.php" class="btn btn-outline-danger m-1">Home</a>
-                <a href="../admin/album.php" class="btn btn-outline-danger m-1">Album</a>
-                <a href="../admin/foto.php" class="btn btn-outline-danger m-1">Foto</a>
-                <a href="../admin/manage_admin.php" class="btn btn-outline-danger m-1">Pengguna</a>
-                </div>
-                <!-- Formulir pencarian -->
-                <form action="" method="GET" class="form-inline justify-content-center mb-2">
-                    <div class="input-group">
-                        <div style="display: flex; align-items: center; margin-left: 50px; margin-top 10px;">
-                            <input type="text" class="form-control" name="search" placeholder="Cari" style="width: 450px;">
-                            <button type="  submit" class="btn btn-outline-primary" style="margin-left: 5px;"><i class="fas fa-search"></i></button>
+                    <a href="../user/index.php" class="btn btn-outline-danger m-1">Beranda</a>
+                    <a href="../user/home.php" class="btn btn-outline-danger m-1">Home</a>
+                    <a href="../user/album.php" class="btn btn-outline-danger m-1">Album</a>
+                    <a href="../user/foto.php" class="btn btn-outline-danger m-1">Foto</a>
+                    <!-- Formulir pencarian -->
+                    <form action="" method="GET" class="form-inline justify-content-center mb-2">
+                        <div class="input-group">
+                            <div style="display: flex; align-items: center; margin-left: 50px; margin-top:5px;">
+                                <input type="text" class="form-control" name="search" placeholder="Cari" style="width: 550px;">
+                                <button type="  submit" class="btn btn-outline-primary" style="margin-left: 5px;"><i class="fas fa-search"></i></button>
+                            </div>
                         </div>
-                    </div>
-                </form>
-                <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1" style="position:relative; left:10px; width: 50px; height: 30px;">
+                    </form>
+                    <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1" style="position:relative; left:10px; width: 50px; height: 30px;">
                     <i class="fas fa-sign-out-alt"></i> <!-- Menggunakan ikon FontAwesome untuk logout -->
-                </a>
+                    </a>
             </div>
             </div>
         </nav>
@@ -82,8 +81,6 @@
     </head>
     <body>
         <!-- Bagian navigasi dan lainnya -->
-
-        
         <!-- Konten utama -->
     <div class="container mt-2">
         <div class="row">
@@ -118,9 +115,9 @@
                             $fotoid = $data['fotoid'];
                             $ceksuka = mysqli_query($koneksi, "SELECT * FROM likefoto WHERE fotoid='$fotoid' AND userid='$userid'");if (mysqli_num_rows($ceksuka) == 1) { 
                                 ?>
-                            <a href="../config/proses_like.php?fotoid=<?php echo $data['fotoid'] ?>" type="submit" name="batalsuka"><i class="fa fa-heart"></i></a>
+                            <a href="../config_user/proses_like.php?fotoid=<?php echo $data['fotoid'] ?>" type="submit" name="batalsuka"><i class="fa fa-heart"></i></a>
                             <?php }else{ ?>
-                                <a href="../config/proses_like.php?fotoid=<?php echo $data['fotoid'] ?>" type="submit" name="suka"><i class="fa-solid  fa-heart"></i></a>
+                                <a href="../config_user/proses_like.php?fotoid=<?php echo $data['fotoid'] ?>" type="submit" name="suka"><i class="fa-solid  fa-heart"></i></a>
                                 <?php }
                                 $like = mysqli_query($koneksi, "SELECT * FROM likefoto WHERE fotoid='$fotoid'");
                                 echo mysqli_num_rows($like). 'Suka';
@@ -179,15 +176,19 @@
                                                                 <?php echo $row['isikomentar'] ?><br>
                                                             </p>
                                                         </div>
+                                                        <?php 
+                                                        if($row['namalengkap'] !== "admin"):
+                                                        ?>
                                                         <div class="col-2">
                                                             <!-- Form untuk hapus komentar -->
-                                                            <form action="../config/proses_komentar.php" method="POST">
+                                                            <form action="../config_user/proses_komentar.php" method="POST">
                                                                 <input type="hidden" name="komentarid" value="<?php echo $row['komentarid']; ?>">
                                                                 <button type="submit" class="btn btn-danger" name="hapus_komentar">
                                                                     <i class="fas fa-trash-alt"></i> <!-- Menggunakan ikon trash dari Font Awesome -->
                                                                 </button>
                                                             </form>
                                                         </div>
+                                                        <?php endif ?>
                                                     </div>
                                                         <?php } ?>
                                                         <hr>
@@ -203,7 +204,6 @@
                                                         </div>
                                                     </form>
                                                 </div>
-
                                                 </div>
                                             </div>
                                 </div>
