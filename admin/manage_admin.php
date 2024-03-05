@@ -28,7 +28,7 @@ session_start();
                 <a href="home.php" class="btn btn-outline-danger m-1">Home</a>
                 <a href="album.php" class="btn btn-outline-danger m-1">Album</a>
                 <a href="foto.php" class="btn btn-outline-danger m-1">Foto</a>
-                <a href="manage_admin.php" class="btn btn-outline-danger m-1">Manage Admin</a>
+                <a href="../admin/manage_admin.php" class="btn btn-outline-danger m-1">Pengguna</a>
                 </div>
             </div>
                 <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1">

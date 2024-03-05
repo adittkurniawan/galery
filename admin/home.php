@@ -31,7 +31,7 @@ $userid = $_SESSION['userid'];
                 <a href="../admin/home.php" class="btn btn-outline-danger m-1">Home</a>
                 <a href="../admin/album.php" class="btn btn-outline-danger m-1">Album</a>
                 <a href="../admin/foto.php" class="btn btn-outline-danger m-1">Foto</a>
-                <a href="../admin/manage_admin.php" class="btn btn-outline-danger m-1">Manage Admin</a>
+                <a href="../admin/manage_admin.php" class="btn btn-outline-danger m-1">Pengguna</a>
             </div>
                 <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1" style="position:relative; left:10px; width: 50px; height: 30px;">
                     <i class="fas fa-sign-out-alt"></i> <!-- Menggunakan ikon FontAwesome untuk logout -->
