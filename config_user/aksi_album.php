@@ -37,7 +37,7 @@ if (isset($_POST['hapus'])) {
     $sql = mysqli_query($koneksi, "DELETE FROM album WHERE albumid='$albumid'");
     echo "<script>
     alert('Data berhasil dihapus!');
-    location.href='../admin/album.php';
+    location.href='../user/album.php';
     </script>";
 }
 

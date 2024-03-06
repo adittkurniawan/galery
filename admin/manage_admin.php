@@ -22,15 +22,6 @@ session_start();
         navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse mt-2" id="navbarNavAltMark">
-                <div class="navbar-nav me-auto">
-                <a href="../admin/index.php" class="btn btn-outline-danger m-1">Beranda</a>
-                <a href="home.php" class="btn btn-outline-danger m-1">Home</a>
-                <a href="album.php" class="btn btn-outline-danger m-1">Album</a>
-                <a href="foto.php" class="btn btn-outline-danger m-1">Foto</a>
-                <a href="../admin/manage_admin.php" class="btn btn-outline-danger m-1">Pengguna</a>
-                </div>
-            </div>
                 <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1">
                     <i class="fas fa-sign-out-alt"></i> <!-- Menggunakan ikon FontAwesome untuk logout -->
                 </a>
@@ -47,6 +38,14 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container">
+            <div class="container">
+                <a href="../admin/index.php" class="btn btn-outline-danger m-1">Beranda</a>
+                <a href="../admin/home.php" class="btn btn-outline-danger m-1">My Album</a>
+                <a href="../admin/album.php" class="btn btn-outline-danger m-1">Album</a>
+                <a href="../admin/foto.php" class="btn btn-outline-danger m-1">Foto</a>
+                <a href="../admin/manage_admin.php" class="btn btn-outline-danger m-1">Pengguna</a>
+            </div>
     <div class="container mt-4">
        <h5>Daftar Admin</h5>
         <table class="table table-striped">

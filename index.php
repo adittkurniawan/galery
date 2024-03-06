@@ -8,6 +8,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 </head>
+<style>
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
@@ -20,7 +30,7 @@
         <form action="" method="GET" class="form-inline justify-content-center mb-2">
             <div class="input-group">
                 <div style="display: flex; align-items: center; margin-left: 150px; margin-top:10px;">
-                    <input type="text" class="form-control" name="search" placeholder="Cari" style="width: 600px;">
+                    <input type="text" class="form-control" name="search" placeholder="Cari" style="width: 400px;">
                     <button type="  submit" class="btn btn-outline-primary" style="margin-left: 10px;"><i class="fas fa-search"></i></button>
                 </div>
             </div>
@@ -56,10 +66,9 @@
     $query= mysqli_query($koneksi, "SELECT * FROM foto $where"); 
     while ($data = mysqli_fetch_array($query)){
         ?>
-        <div class="col-md-3 mt-2">
+        <div class="col-md-3 mt-2 mb-3">
             <div class="card">
-                <a href="assets/img/<?php echo $data['lokasifile'] ?>" data-lightbox="gallery" data-title="<?php echo $data['judulfoto'] ?>">
-                    <img style="height: 12rem;" src="assets/img/<?php echo $data['lokasifile'] ?>" class="card-img-top" title="<?php echo $data['judulfoto'] ?>">
+            <img style="height: 16rem; width: 100%; object-fit: cover;" src="assets/img/<?php echo $data['lokasifile'] ?>" title="<?php echo $data['judulfoto'] ?>">
                 </a>
                 <div class="card-footer text-center">
                     <?php

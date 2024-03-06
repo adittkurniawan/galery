@@ -21,20 +21,19 @@ include '../config/koneksi.php';
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse mt-2" id="navbarNavAltMarkup">
-                <div class="navbar-nav me-auto">
-                <a href="../user/index.php" class="btn btn-outline-danger m-1">Beranda</a>
-                <a href="../user/home.php" class="btn btn-outline-danger m-1">Home</a>
-                <a href="../user/album.php" class="btn btn-outline-danger m-1">Album</a>
-                <a href="../user/foto.php" class="btn btn-outline-danger m-1">Foto</a>
-                </div>
                 <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1" style="position:relative; left:10px; width: 50px; height: 30px;">
                     <i class="fas fa-sign-out-alt"></i> <!-- Menggunakan ikon FontAwesome untuk logout -->
                 </a>
             </div>
         </div>
     </nav>
-    <div class="container">
+            <div class="container">
+                <a href="../user/index.php" class="btn btn-outline-danger m-1">Beranda</a>
+                <a href="../user/home.php" class="btn btn-outline-danger m-1">My Album</a>
+                <a href="../user/album.php" class="btn btn-outline-danger m-1">Album</a>
+                <a href="../user/foto.php" class="btn btn-outline-danger m-1">Foto</a>
+            </div>
+    <div class="container mt-4">
         <div class="row">
             <div class="col-md-4">
                 <div class="card mt-2">
@@ -48,7 +47,10 @@ include '../config/koneksi.php';
                             <label class="form-label">Album</label>
                             <select class="form-control" name="albumid" required>
                                <?php
-                               $sql_album = mysqli_query($koneksi, "SELECT * FROM album");
+                               // Gantilah $userid dengan variabel yang sesuai yang menyimpan ID pengguna yang masuk
+                               $userid = $_SESSION['userid']; // misalnya
+
+                               $sql_album = mysqli_query($koneksi, "SELECT * FROM album WHERE userid = '$userid'");
                                while($data_album = mysqli_fetch_array($sql_album)){ ?>
                                  <option value="<?php echo $data_album['albumid'] ?>"><?php echo $data_album['namaalbum'] ?></option>
                                <?php } ?>  

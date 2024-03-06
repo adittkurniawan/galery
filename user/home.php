@@ -14,6 +14,15 @@ $userid = $_SESSION['userid'];
     <!-- Tambahkan tautan ke library FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
+<style>
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
@@ -23,21 +32,20 @@ $userid = $_SESSION['userid'];
         navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse mt-2" id="navbarNavAltMark
-    <div class=" navbar-nav me-auto">  
-    <a href="../user/index.php" class="btn btn-outline-danger m-1">Beranda</a>
-                <a href="../user/home.php" class="btn btn-outline-danger m-1">Home</a>
-                <a href="../user/album.php" class="btn btn-outline-danger m-1">Album</a>
-                <a href="../user/foto.php" class="btn btn-outline-danger m-1">Foto</a>
-            </div>
                 <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1" style="position:relative; left:10px; width: 50px; height: 30px;">
                     <i class="fas fa-sign-out-alt"></i> <!-- Menggunakan ikon FontAwesome untuk logout -->
                 </a>
         </div>
         </div>
     </nav>
+            <div class="container">
+                <a href="../user/index.php" class="btn btn-outline-danger m-1">Beranda</a>
+                <a href="../user/home.php" class="btn btn-outline-danger m-1">My Album</a>
+                <a href="../user/album.php" class="btn btn-outline-danger m-1">Album</a>
+                <a href="../user/foto.php" class="btn btn-outline-danger m-1">Foto</a>
+            </div>
 
-    <div class="container mt-3">
+    <div class="container mt-4">
        Album :
         <?php
         $album =mysqli_query($koneksi, "SELECT * FROM album WHERE userid='$userid'");
@@ -55,7 +63,7 @@ $userid = $_SESSION['userid'];
         
         <div class="col-md-3 mt-2">
                     <div class="card">
-                        <img style="height: 12rem;" src="../assets/img/<?php echo $data['lokasifile'] ?>" class="card-img-top" title="<?php echo $data['judulfoto'] ?>">
+                    <img style="height: 16rem; width: 100%; object-fit: cover;" src="../assets/img/<?php echo $data['lokasifile'] ?>" title="<?php echo $data['judulfoto'] ?>">
                         <div class="card-footer text-center">
 
 
@@ -90,9 +98,9 @@ $userid = $_SESSION['userid'];
                 
             
                 ?>
-                <div class="col-md-3 mt-2">
+                <div class="col-md-3 mt-3">
                     <div class="card">
-                        <img style="height: 12rem;" src="../assets/img/<?php echo $data['lokasifile'] ?>" class="card-img-top" title="<?php echo $data['judulfoto'] ?>">
+                    <img style="height: 16rem; width: 100%; object-fit: cover;" src="../assets/img/<?php echo $data['lokasifile'] ?>" title="<?php echo $data['judulfoto'] ?>">
                         <div class="card-footer text-center">
 
 
@@ -123,7 +131,7 @@ $userid = $_SESSION['userid'];
                 
                 <?php } }
                 else{
-                  echo  "<h2>Data belum ada</h2>";
+                  echo  "<h2>Belum ada album & foto yg diupload</h2>";
                 }
             } 
             

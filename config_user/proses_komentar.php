@@ -78,11 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['hapus_komentar'])) {
 
     if (mysqli_query($koneksi, $query)) {
         // Jika penghapusan berhasil, alihkan kembali ke halaman foto dengan pesan sukses
-        header("Location: ../user/foto.php?hapus_success=true");
+        header("Location: ../user/index.php?hapus_success=true");
         exit();
     } else {
         // Jika penghapusan gagal, alihkan kembali ke halaman foto dengan pesan error
-        header("Location: ../user/foto.php?hapus_error=true");
+        header("Location: ../user/index.php?hapus_error=true");
         exit();
     }
 } else {

@@ -53,7 +53,7 @@ assets/css/bootstrap.min.css">
                             <select class="form-select" id="level" name="level" required>
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
-                            <option value="user">Guest</option>
+                            <option value="guest">Guest</option>
                             </select>
                                 <button class="btn btn-primary" type="submit" name=" kirim">DAFTAR</button>
                             </div>

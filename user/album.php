@@ -22,21 +22,19 @@ include'../config/koneksi.php';
         navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse mt-2" id="navbarNavAltMark">
-                <div class="navbar-nav me-auto">
-                <a href="../user/index.php" class="btn btn-outline-danger m-1">Beranda</a>
-                <a href="../user/home.php" class="btn btn-outline-danger m-1">Home</a>
-                <a href="../user/album.php" class="btn btn-outline-danger m-1">Album</a>
-                <a href="../user/foto.php" class="btn btn-outline-danger m-1">Foto</a>
-                </div>
-            </div>
                 <a href="../config/aksi_logout.php" class="btn btn-outline-success m-1" style="position:relative; left:10px; width: 50px; height: 30px;">
                     <i class="fas fa-sign-out-alt"></i> <!-- Menggunakan ikon FontAwesome untuk logout -->
                 </a>
         </div>
         </div>
     </nav>
-    <div class="container">
+            <div class="container">
+                <a href="../user/index.php" class="btn btn-outline-danger m-1">Beranda</a>
+                <a href="../user/home.php" class="btn btn-outline-danger m-1">My Album</a>
+                <a href="../user/album.php" class="btn btn-outline-danger m-1">Album</a>
+                <a href="../user/foto.php" class="btn btn-outline-danger m-1">Foto</a>
+            </div>
+    <div class="container mt-4">
         <div class="row">
             <div class="col-md-4">
                 <div class="card mt-2">

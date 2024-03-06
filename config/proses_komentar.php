@@ -79,16 +79,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['hapus_komentar'])) {
 
     if (mysqli_query($koneksi, $query)) {
         // Jika penghapusan berhasil, alihkan kembali ke halaman foto dengan pesan sukses
-        header("Location: ../admin/foto.php?hapus_success=true");
+        header("Location: ../admin/index.php?hapus_success=true");
         exit();
     } else {
         // Jika penghapusan gagal, alihkan kembali ke halaman foto dengan pesan error
-        header("Location: ../admin/foto.php?hapus_error=true");
+        header("Location: ../admin/index.php?hapus_error=true");
         exit();
     }
 } else {
     // Jika tidak ada metode POST yang terdeteksi atau data yang diperlukan tidak tersedia, alihkan kembali ke halaman foto
-    header("Location: ../admin/foto.php");
+    header("Location: ../admin/index.php");
     exit();
 }
 ?>
