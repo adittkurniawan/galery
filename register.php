@@ -26,7 +26,7 @@ assets/css/bootstrap.min.css">
             Sign in</a>
          </div>
         </div>
-    </nav>
+   </nav>
 
     <div class="container py-5">
         <div class="row justify-content-center">
