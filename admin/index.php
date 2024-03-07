@@ -77,7 +77,7 @@ $result = mysqli_query($koneksi, $query);
             <div class="col-md-3 mt-2">
                 <a type="button" data-bs-toggle="modal" data-bs-target="#komentar<?php echo $data['fotoid'] ?>">
                     <div class="card mb-2">
-                    <img style="height: 16rem; width: 100%; object-fit: cover;" src="../assets/img/<?php echo $data['lokasifile'] ?>" title="<?php echo $data['judulfoto'] ?>">
+                    <img style="height: 17rem; width: 100%; object-fit: cover;" src="../assets/img/<?php echo $data['lokasifile'] ?>" title="<?php echo $data['judulfoto'] ?>">
                         <div class="card-footer text-center">
                             <?php
                             $userid = $data['userid'];
@@ -119,7 +119,7 @@ $result = mysqli_query($koneksi, $query);
                                     <div class="col-md-4">
                                         <div class="m-2">
                                             <div class="">
-                                                <div class="sticky-top">
+                                                <div class="">
                                                     <strong><?php echo $data['judulfoto'] ?></strong><br>
                                                     <span
                                                         class="badge bg-secondary"><?php echo $data['namalengkap'] ?></span>
